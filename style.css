@@ -1,0 +1,291 @@
+/* Thiết lập cơ bản */
+:root {
+  --primary-text-color: #333;
+  --secondary-text-color: #111010;
+  --background-light-pink: #77b414; /* Màu nền hồng nhạt */
+  --button-primary-bg: #fff;
+  --button-primary-border: #ccc;
+  --button-secondary-bg: #ffffff; /* Màu nền xám cho Podcast */
+  --button-text-color: #333;
+  --footer-text-color: #6e6060;
+  --navbar-height: 60px; /* Chiều cao navbar */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+  color: var(--primary-text-color);
+  background-color: var(--background-light-pink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Để footer ở dưới cùng */
+  overflow-x: hidden; /* Tránh scroll ngang không mong muốn */
+  position: relative; /* Cho phép background gradient position absolute */
+}
+
+/* Background gradient */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 173, 204, 0.5) 0%,
+    rgba(173, 216, 230, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: -1; /* Đặt gradient dưới nội dung */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  height: var(--navbar-height);
+  font-weight: 600;
+  color: var(--secondary-text-color);
+  position: fixed; /* Giữ navbar ở trên cùng khi cuộn */
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Đảm bảo navbar luôn ở trên cùng */
+  background-color: rgba(253, 246, 247, 0.8); /* Nền mờ cho navbar */
+  backdrop-filter: blur(5px); /* Hiệu ứng mờ cho navbar */
+}
+
+.navbar-left {
+  font-size: 1.1em;
+}
+
+.navbar-right .nav-item {
+  text-decoration: none;
+  color: var(--secondary-text-color);
+  margin-left: 30px;
+  transition: color 0.3s ease;
+}
+
+.navbar-right .nav-item:hover {
+  color: var(--primary-text-color);
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(
+    100vh - var(--navbar-height) - 80px
+  ); /* Trừ đi chiều cao navbar và footer */
+  padding: calc(var(--navbar-height) + 20px) 50px 20px; /* Thêm padding trên để tránh navbar */
+  flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+  gap: 40px; /* Khoảng cách giữa ảnh và nội dung */
+}
+
+.image-container {
+  flex-shrink: 0; /* Ngăn không cho ảnh co lại */
+  position: relative;
+  padding: 20px; /* Padding để tạo khoảng trắng bao quanh ảnh */
+  background: rgba(255, 255, 255, 0.4); /* Nền mờ cho khung ảnh */
+  border-radius: 30px; /* Bo góc khung ảnh */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+  backdrop-filter: blur(10px); /* Hiệu ứng mờ cho khung ảnh */
+}
+
+.profile-image {
+  width: 350px; /* Kích thước ảnh */
+  height: 350px;
+  object-fit: cover; /* Đảm bảo ảnh đầy đủ mà không bị méo */
+  border-radius: 15px; /* Bo góc ảnh */
+  display: block; /* Loại bỏ khoảng trắng dưới ảnh */
+}
+
+.content-container {
+  text-align: left;
+  max-width: 500px;
+  padding-left: 20px; /* Để tránh dính vào ảnh */
+}
+
+.content-container h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5em;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--primary-text-color);
+}
+
+.content-container p {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  color: var(--secondary-text-color);
+}
+
+.buttons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Khoảng cách giữa các nút */
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: block; /* Mỗi nút một hàng */
+  padding: 15px 30px;
+  border: 1px solid var(--button-primary-border);
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  background-color: var(--button-primary-bg);
+  color: var(--button-text-color);
+}
+
+.secondary-btn {
+  background-color: var(--button-secondary-bg);
+  color: #000000;
+  border-color: var(--button-secondary-bg);
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-text-color);
+  color: #fff;
+  border-color: var(--primary-text-color);
+}
+
+.secondary-btn:hover {
+  background-color: #252525; /* Màu xám đậm hơn khi hover */
+  border-color: #777;
+  color: #ccc;
+}
+
+.social-icons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.social-icons a {
+  color: var(--secondary-text-color);
+  font-size: 1.5em;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--primary-text-color);
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  font-size: 0.85em;
+  color: var(--footer-text-color);
+  border-top: 1px solid rgba(0, 0, 0, 0.05); /* Đường kẻ mờ phía trên footer */
+  flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+  gap: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .hero-section {
+    flex-direction: column; /* Đổi bố cục thành cột */
+    padding-top: calc(
+      var(--navbar-height) + 40px
+    ); /* Tăng padding để có khoảng trống */
+    text-align: center; /* Căn giữa nội dung khi xếp cột */
+  }
+
+  .image-container {
+    margin-bottom: 20px; /* Khoảng cách dưới ảnh */
+  }
+
+  .content-container {
+    padding-left: 0;
+    padding: 0 20px; /* Thêm padding ngang cho nội dung */
+  }
+
+  .content-container h1 {
+    font-size: 2.8em;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .hero-section {
+    padding: calc(var(--navbar-height) + 20px) 20px 20px;
+  }
+
+  .profile-image {
+    width: 280px;
+    height: 280px;
+  }
+
+  .content-container h1 {
+    font-size: 2.2em;
+  }
+
+  .content-container p {
+    font-size: 1em;
+  }
+
+  .buttons-group .btn {
+    padding: 12px 20px;
+    font-size: 0.9em;
+  }
+
+  .social-icons {
+    justify-content: center; /* Căn giữa icon trên màn hình nhỏ */
+  }
+
+  .footer {
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-left {
+    font-size: 1em;
+  }
+  .navbar-right .nav-item {
+    margin-left: 15px;
+  }
+  .profile-image {
+    width: 250px;
+    height: 250px;
+  }
+  .content-container h1 {
+    font-size: 1.8em;
+  }
+  .buttons-group {
+    gap: 10px;
+  }
+  .social-icons a {
+    font-size: 1.3em;
+  }
+}
