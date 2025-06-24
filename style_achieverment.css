@@ -135,13 +135,11 @@ body {
     gap: 15px; /* Giảm khoảng cách giữa các phần tử */
   }
 
-  .container,
   .sidebar {
     flex-basis: auto; /* Tự động điều chỉnh kích thước */
     width: 100%; /* Chiếm toàn bộ chiều rộng */
     max-width: none; /* Bỏ giới hạn chiều rộng tối đa */
     margin: 0; /* Đảm bảo không có margin bên ngoài */
-    j
   }
 
   .sidebar {
