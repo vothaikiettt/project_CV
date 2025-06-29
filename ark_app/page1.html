@@ -2,7 +2,8 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <title>Tạo Lịch Trình</title>
+    <title>ArkTreval</title>
+    <link rel="stylesheet" href="./page1.css" />
     <style>
       body {
         font-family: "Segoe UI", sans-serif;
@@ -12,6 +13,7 @@
 
       h2 {
         color: #4caf50;
+        margin-top: 7rem;
       }
 
       label {
@@ -42,45 +44,47 @@
     </style>
   </head>
   <body>
+    <header class="navbar">
+      <div class="navbar-left">ArkTreval</div>
+      <nav class="navbar-right">
+        <a href="../page_home.html" class="nav-item">HOME</a>
+      </nav>
+    </header>
+
     <h2>Tạo Lịch Trình Mới</h2>
 
     <form>
       <label>Địa điểm</label>
-      <select>
-        <option>Tp Đà Nẵng</option>
-        <option>Thủ đô Hà Nội</option>
-        <option>Tp Đà Lạt</option>
-        <option>Phố cổ Hội An</option>
-        <option>Khánh Hòa</option>
-        <option>Tp Hồ Chí Minh</option>
+      <select id="place">
+        <option value="danang">Tp Đà Nẵng</option>
+        <option value="dalat">Tp Đà Lạt</option>
+        <option value="hoian">Phố cổ Hội An</option>
       </select>
 
       <label>Số ngày đi</label>
-      <select>
-        <option>2 ngày</option>
-        <option>3 ngày</option>
-        <option>4 ngày</option>
-        <option>5 ngày</option>
-        <option>6 ngày</option>
-        <option>7 ngày</option>
-        <option>nhiều ngày</option>
+      <select id="days">
+        <option value="2">2 ngày</option>
+        <option value="3">3 ngày</option>
+        <option value="4">4 ngày</option>
       </select>
 
       <label>Phong cách du lịch</label>
-      <select>
-        <option>Tham quan</option>
-        <option>Nghỉ dưỡng</option>
-        <option>Ẩm thực</option>
+      <select id="style">
+        <option value="sightseeing">Tham quan</option>
+        <option value="vacation">Nghỉ dưỡng</option>
+        <option value="food">Ẩm thực</option>
       </select>
 
       <label>Ngân sách</label>
-      <select>
-        <option>Tiết kiệm</option>
-        <option>Trung bình</option>
-        <option>Cao cấp</option>
+      <select id="budget">
+        <option value="save">Tiết kiệm</option>
+        <option value="medium">Trung bình</option>
+        <option value="luxury">Cao cấp</option>
       </select>
 
-      <a href="./page2.html" class="btn">🚀 Tạo lịch trình</a>
+      <button onclick="HandleSubmit()" class="btn">🚀 Tạo lịch trình</button>
+      <div id="output" style="margin-top: 20px; font-weight: bold"></div>
+      <script src="page1.js"></script>
     </form>
   </body>
 </html>

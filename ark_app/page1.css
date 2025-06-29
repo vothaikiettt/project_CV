@@ -1,0 +1,93 @@
+:root {
+  --primary-text-color: #333;
+  --secondary-text-color: #111010;
+  --background-light-pink: #eefbe7;
+  --button-primary-bg: #fff;
+  --button-primary-border: #ccc;
+  --footer-text-color: #6e6060;
+  --navbar-height: 60px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: var(--background-light-pink);
+  color: var(--primary-text-color);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-height);
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.main-content {
+  padding-top: calc(var(--navbar-height) + 40px);
+  max-width: 600px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+button {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 1em;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#output {
+  margin-top: 30px;
+  font-size: 1.1em;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tạo Lịch Trình</title>
+  </head>
+  <body>
+    <h2>🧭 Tạo Lịch Trình</h2>
+
+    <!-- 1. Chọn điểm đến -->
+    <label>Điểm đến:</label>
+    <select id="destination">
+      <option value="">-- Chọn điểm đến --</option>
+      <option value="danang">Đà Nẵng</option>
+      <option value="dalat">Đà Lạt</option>
+      <option value="hanoi">Hà Nội</option>
+    </select>
+
+    <!-- 2. Chọn số ngày -->
+    <label>Số ngày:</label>
+    <select id="days">
+      <option value="">-- Chọn số ngày --</option>
+      <option value="2">2 ngày</option>
+      <option value="3">3 ngày</option>
+      <option value="4">4 ngày</option>
+    </select>
+
+    <!-- 3. Chọn ngân sách -->
+    <label>Ngân sách:</label>
+    <select id="budget">
+      <option value="">-- Chọn ngân sách --</option>
+      <option value="low">Tiết kiệm</option>
+      <option value="medium">Trung bình</option>
+      <option value="high">Cao cấp</option>
+    </select>
+
+    <!-- Nút xác nhận -->
+    <br /><br />
+    <button onclick="handleSubmit()">Xác nhận</button>
+
+    <p id="output"></p>
+
+    <script>
+      function handleSubmit() {
+        const destination = document.getElementById("destination");
+        const days = document.getElementById("days");
+        const budget = document.getElementById("budget");
+
+        const result = `
+        ✅ Điểm đến: ${destination.options[destination.selectedIndex].text} <br>
+        🕒 Số ngày: ${days.options[days.selectedIndex].text} <br>
+        💰 Ngân sách: ${budget.options[budget.selectedIndex].text}
+      `;
+
+        // Kiểm tra xem đã chọn đủ chưa
+        if (destination.value && days.value && budget.value) {
+          document.getElementById("output").innerHTML = result;
+        } else {
+          document.getElementById("output").innerHTML =
+            "⚠️ Vui lòng chọn đầy đủ thông tin.";
+        }
+      }
+    </script>
+  </body>
+</html>
