@@ -1,4 +1,4 @@
-function handleSubmit() {
+function HandleSubmit() {
   const place = document.getElementById("place").value;
   const days = document.getElementById("days").value;
   const style = document.getElementById("style").value;
@@ -31,4 +31,12 @@ function handleSubmit() {
     <p>🎒 <strong>Phong cách:</strong> ${styleMap[style]}</p>
     <p>💰 <strong>Ngân sách:</strong> ${budgetMap[budget]}</p>
   `;
+  if (
+    place === "danang" &&
+    days === "2" &&
+    // start only 2 days
+    style === "sightseeing" &&
+    budget === "save"
+  ) {
+  }
 }
